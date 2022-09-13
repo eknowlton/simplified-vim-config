@@ -2,9 +2,9 @@
 
 ## Dependencies
 
-Install `vim-plug` ... [https://github.com/junegunn/vim-plug](Vim-plug)...
+Install `vim-plug` ... https://github.com/junegunn/vim-plug
 
-Install `Ranger`... [https://github.com/ranger/ranger](Ranger)
+Install `Ranger`... https://github.com/ranger/ranger
 
 `FZF` will be installed when you run `:PlugInstall` after installing `vim-plug`.
 
@@ -13,7 +13,7 @@ Install `Ranger`... [https://github.com/ranger/ranger](Ranger)
 
 This is used for LSP for different languages.
 
-[https://github.com/neoclide/coc.nvim](Coc.nvim)
+https://github.com/neoclide/coc.nvim
 
 Look at the Coc.nvim documenation to install specific LSP.
 
