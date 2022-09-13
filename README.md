@@ -1,5 +1,14 @@
 # Simple VIM Config
 
+## deps
+
+Install `vim-plug` ... [https://github.com/junegunn/vim-plug](Vim-plug)...
+
+Install `Ranger`... [https://github.com/ranger/ranger](Ranger)
+
+`FZF` will be installed when you run `:PlugInstall` after installing `vim-plug`.
+
+
 ### Coc.nvim
 
 This is used for LSP for different languages.
