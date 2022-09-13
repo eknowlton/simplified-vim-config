@@ -1,6 +1,6 @@
 # Simple VIM Config
 
-## deps
+## Dependencies
 
 Install `vim-plug` ... [https://github.com/junegunn/vim-plug](Vim-plug)...
 
