@@ -10,15 +10,26 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'liuchengxu/vim-which-key'
 Plug 'ruanyl/vim-gh-line'
+Plug 'hashivim/vim-terraform'
+Plug 'jasonccox/vim-wayland-clipboard'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jiangmiao/auto-pairs'
+Plug 'gko/vim-coloresque'
+Plug 'KabbAmine/vCoolor.vim'
+Plug 'janko-m/vim-test'
 
 call plug#end()
 
 set exrc
 set secure
 
+let g:mkdp_auto_start = 1
+
 colorscheme monokai
 
 set encoding=UTF-8
+set mouse=a
 
 set number
 set relativenumber
@@ -43,9 +54,10 @@ autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 autocmd FileType php setlocal ts=4 sts=4 sw=4
 autocmd FileType ccpp setlocal ts=4 sts=4 sw=4
 autocmd FileType xml setlocal ts=2 sts=2 sw=2
+autocmd FileType css setlocal ts=2 sts=2 sw=2
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-autocmd BufEnter *.tsx set filetype=typescript.jsx
+autocmd BufEnter *.tsx set filetype=typescript.tsx
 autocmd BufEnter *.jsx set filetype=javascript.jsx
 
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -101,8 +113,19 @@ let g:which_key_map.w = { 'name' : 'Windows',
 	       \ 't' : ['call MaximizeToggle()', 'Close Others'],
 	       \ '=': ['wincmd =', 'Resize Equally'],
 	       \ }
+"----- Testing
+let g:which_key_map.t = { 'name' : 'Testing',
+               \ 'n' : ['TestNearest', 'Nearest'],
+               \ 'f' : ['TestFile', 'File'],
+               \ 's' : ['TestSuite', 'Suite'],
+               \ 'l' : ['TestLast', 'Last'],
+               \ 'v' : ['TestVisit', 'Visit Last'],
+               \ }
 
 call which_key#register('<Space>', "g:which_key_map")
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <localleader> :<c-u>WhichKeyVisual ','<CR>
+
+let test#strategy = "shtuff"
+let g:shtuff_receiver = 'devrunner'
