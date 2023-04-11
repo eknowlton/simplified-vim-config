@@ -1,3 +1,9 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
@@ -18,6 +24,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'gko/vim-coloresque'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'janko-m/vim-test'
+Plug 'LnL7/vim-nix'
+Plug 'tpope/vim-fugitive'
+Plug 'jparise/vim-graphql'
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()
 
@@ -102,6 +112,17 @@ let g:which_key_map.f = { 'name' : 'Files',
                \ 'g' : ['GFiles', 'Find GIT Files FZF'],
                \ }
 
+let g:which_key_map.b = { 'name' : 'Buffer',
+               \ 'd' : ['bd', 'Close buffer'],
+               \ }
+
+"----- Fugitive ( Git )
+let g:which_key_map.g = { 'name' : 'Fugitive',
+               \ 'g' : ['Git', 'Call a git command'],
+               \ 'b' : ['Git blame', 'Blame'],
+               \ 'd' : ['Git diff', 'Git Diff'],
+               \ }
+
 let g:which_key_map.w = { 'name' : 'Windows',
 	       \ 'd' : ['close', 'Close Window'],
 	       \ 's' : ['split', 'Horizontal Split'],
@@ -113,6 +134,7 @@ let g:which_key_map.w = { 'name' : 'Windows',
 	       \ 't' : ['call MaximizeToggle()', 'Close Others'],
 	       \ '=': ['wincmd =', 'Resize Equally'],
 	       \ }
+
 "----- Testing
 let g:which_key_map.t = { 'name' : 'Testing',
                \ 'n' : ['TestNearest', 'Nearest'],
